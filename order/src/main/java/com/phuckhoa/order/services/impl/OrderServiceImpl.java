@@ -35,10 +35,9 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public String createOrder(CreateOrderRequestDto dto) throws InvalidDiscountException {
         orderRepository.save(null);
-        userClient.getuserById(null);
+        userClient.getUserById(null);
         discountClient.getDiscountById(null);
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createOrder'");
+        return "HELLO GUY";
     }
     
 }

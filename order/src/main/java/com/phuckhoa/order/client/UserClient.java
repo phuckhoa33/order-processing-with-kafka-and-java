@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * Feign client for interacting with the Discount Service.
- * This client will be used to query the Discount Service for discount information.
+ * This client will be used to query the Discount Service for discount
+ * information.
  */
 @FeignClient(name = "user-service", url = "http://user-service-url")
 public interface UserClient {
@@ -19,5 +20,5 @@ public interface UserClient {
      * @return ResponseEntity containing the user details.
      */
     @GetMapping("/users/{userId}")
-    ResponseEntity<Object> getuserById(@PathVariable("userId") Long discountId);
+    ResponseEntity<Object> getUserById(@PathVariable("userId") Long discountId);
 }

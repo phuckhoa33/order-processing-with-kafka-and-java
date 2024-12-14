@@ -5,6 +5,9 @@ import java.util.Date;
 import com.phuckhoa.order.model.abstracts.postgres.DatabasePostgresFullAuditedModelAbstract;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -22,6 +25,9 @@ import lombok.Setter;
 @Entity()
 @Table(name = "order-discounts")
 public class OrderDiscount extends DatabasePostgresFullAuditedModelAbstract {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     @ManyToOne
     @JoinColumn(name = "orderId", nullable = false)
     private OrderModel order;
