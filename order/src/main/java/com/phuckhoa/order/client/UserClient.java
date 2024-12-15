@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * This client will be used to query the Discount Service for discount
  * information.
  */
-@FeignClient(name = "user-service", url = "http://user-service-url")
+@FeignClient(name = "user-service", url = "http://localhost:8888")
 public interface UserClient {
 
     /**
@@ -19,6 +19,6 @@ public interface UserClient {
      * @param userId the ID of the user.
      * @return ResponseEntity containing the user details.
      */
-    @GetMapping("/users/{userId}")
-    ResponseEntity<Object> getUserById(@PathVariable("userId") Long discountId);
+    @GetMapping("/api/v1/public/users/{userId}")
+    ResponseEntity<Object> getUserById(@PathVariable("userId") String userId);
 }

@@ -1,21 +1,19 @@
 package com.phuckhoa.order.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.phuckhoa.order.client.DiscountClient;
 import com.phuckhoa.order.client.UserClient;
 import com.phuckhoa.order.dto.CreateOrderRequestDto;
 import com.phuckhoa.order.exception.InvalidDiscountException;
 import com.phuckhoa.order.repository.OrderRepository;
 import com.phuckhoa.order.services.OrderService;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
-
-    @Autowired
-    private DiscountClient discountClient;
 
     @Autowired
     private UserClient userClient;
@@ -34,10 +32,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String createOrder(CreateOrderRequestDto dto) throws InvalidDiscountException {
-        orderRepository.save(null);
-        userClient.getUserById(null);
-        discountClient.getDiscountById(null);
+        // orderRepository.save(null);
+        Object result = userClient.getUserById(dto.getCustomerId());
+        System.out.println(result);
+        // discountClient.getDiscountById(null);
         return "HELLO GUY";
     }
-    
 }
