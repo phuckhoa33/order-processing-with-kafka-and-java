@@ -5,6 +5,7 @@ import (
 
 	"github.com/phuckhoa33/web-crawler/cmd/server"
 	health_check_route "github.com/phuckhoa33/web-crawler/internal/api/routes/health-check"
+	transaction_route "github.com/phuckhoa33/web-crawler/internal/api/routes/transaction"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
@@ -16,6 +17,9 @@ func ConfigureRoutes(server *server.Server) {
 
 	// Configure for health check route
 	health_check_route.ConfigureHealthCheckRoutes(server, v1)
+
+	// Configure for transaction route
+	transaction_route.ConfigureTransactionRoute(server, v1)
 
 	// Configure path of swagger
 	server.Gin.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))

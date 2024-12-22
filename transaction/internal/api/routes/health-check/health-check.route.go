@@ -3,7 +3,7 @@ package health_check_route
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/phuckhoa33/web-crawler/cmd/server"
-	handlers "github.com/phuckhoa33/web-crawler/internal/api/handlers/health-check"
+	"github.com/phuckhoa33/web-crawler/internal/api/handlers"
 )
 
 func ConfigureHealthCheckRoutes(server *server.Server, route *gin.RouterGroup) {
